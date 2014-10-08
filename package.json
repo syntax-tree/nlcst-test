@@ -1,0 +1,32 @@
+{
+  "name": "nlcst-test",
+  "version": "0.1.0",
+  "description": "Validate a Natural Language Concrete Syntax Tree (NLCST) node",
+  "license": "MIT",
+  "keywords": [
+    "nlcst",
+    "to",
+    "string"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wooorm/nlcst-test.git"
+  },
+  "author": "Titus Wormer <tituswormer@gmail.com>",
+  "devDependencies": {
+    "eslint": "^0.8.0",
+    "istanbul": "^0.3.0",
+    "jscs": "^1.6.0",
+    "mocha": "^1.21.0"
+  },
+  "scripts": {
+    "test": "node_modules/.bin/_mocha --reporter spec --check-leaks -u exports test.js",
+    "test-travis": "node_modules/.bin/istanbul cover node_modules/.bin/_mocha --report lcovonly -- --reporter spec --check-leaks -u exports test.js",
+    "lint": "npm run-script lint-api && npm run-script lint-test && npm run-script lint-style",
+    "lint-api": "node_modules/.bin/eslint index.js --env node --env browser --rule 'quotes: [2, single], consistent-return: false'",
+    "lint-test": "node_modules/.bin/eslint test.js --env node --env mocha --rule 'quotes: [2, single], no-loop-func: false'",
+    "lint-style": "node_modules/.bin/jscs index.js test.js --reporter=inline",
+    "coverage": "node_modules/.bin/istanbul cover node_modules/.bin/_mocha -- -- test.js",
+    "make": "npm run-script lint && npm run-script coverage"
+  }
+}

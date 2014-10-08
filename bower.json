@@ -1,0 +1,29 @@
+{
+  "name": "nlcst-test",
+  "main": "index.js",
+  "description": "Validate a Natural Language Concrete Syntax Tree (NLCST) node",
+  "license": "MIT",
+  "keywords": [
+    "nlcst",
+    "to",
+    "string"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wooorm/nlcst-test.git"
+  },
+  "authors": [
+    "Titus Wormer <tituswormer@gmail.com>"
+  ],
+  "ignore": [
+    ".*",
+    "*.log",
+    "*.md",
+    "component.json",
+    "package.json",
+    "coverage",
+    "node_modules",
+    "benchmark",
+    "spec"
+  ]
+}

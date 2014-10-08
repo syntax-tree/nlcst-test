@@ -1,0 +1,15 @@
+{
+  "name": "nlcst-test",
+  "version": "0.1.0",
+  "description": "Validate a Natural Language Concrete Syntax Tree (NLCST) node",
+  "license": "MIT",
+  "keywords": [
+    "nlcst",
+    "to",
+    "string"
+  ],
+  "repository": "wooorm/nlcst-test",
+  "scripts" : [
+    "index.js"
+  ]
+}
