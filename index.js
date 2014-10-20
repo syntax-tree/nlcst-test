@@ -37,6 +37,7 @@ KNOWN_TYPES = [
     'ParagraphNode',
     'SentenceNode',
     'WordNode',
+    'SymbolNode',
     'PunctuationNode',
     'WhiteSpaceNode',
     'Text',
@@ -155,9 +156,7 @@ function test(cst) {
         cst.type === 'RootNode' ||
         cst.type === 'ParagraphNode' ||
         cst.type === 'SentenceNode' ||
-        cst.type === 'WordNode' ||
-        cst.type === 'PunctuationNode' ||
-        cst.type === 'WhiteSpaceNode'
+        cst.type === 'WordNode'
     ) {
         if (!has.call(cst, 'children')) {
             throw new TypeError(
@@ -167,6 +166,9 @@ function test(cst) {
         }
     } else if (
         cst.type === 'Text' ||
+        cst.type === 'SymbolNode' ||
+        cst.type === 'PunctuationNode' ||
+        cst.type === 'WhiteSpaceNode' ||
         cst.type === 'SourceNode' ||
         cst.type === 'TextNode'
     ) {

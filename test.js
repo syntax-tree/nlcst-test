@@ -183,22 +183,6 @@ describe('nlcstTest(value)', function () {
         }, /Missing `children` attribute for parent `\[object Object\]`/);
     });
 
-    it('should throw on `WhiteSpaceNode`s without `children`', function () {
-        assert.throws(function () {
-            nlcstTest({
-                'type' : 'WhiteSpaceNode'
-            });
-        }, /Missing `children` attribute for parent `\[object Object\]`/);
-    });
-
-    it('should throw on `PunctuationNode`s without `children`', function () {
-        assert.throws(function () {
-            nlcstTest({
-                'type' : 'PunctuationNode'
-            });
-        }, /Missing `children` attribute for parent `\[object Object\]`/);
-    });
-
     it('should throw on `Text`s without `value`', function () {
         assert.throws(function () {
             nlcstTest({
@@ -223,6 +207,30 @@ describe('nlcstTest(value)', function () {
         }, /Missing `value` attribute for text `\[object Object\]`/);
     });
 
+    it('should throw on `WhiteSpaceNode`s without `value`', function () {
+        assert.throws(function () {
+            nlcstTest({
+                'type' : 'WhiteSpaceNode'
+            });
+        }, /Missing `value` attribute for text `\[object Object\]`/);
+    });
+
+    it('should throw on `SymbolNode`s without `value`', function () {
+        assert.throws(function () {
+            nlcstTest({
+                'type' : 'SymbolNode'
+            });
+        }, /Missing `value` attribute for text `\[object Object\]`/);
+    });
+
+    it('should throw on `PunctuationNode`s without `value`', function () {
+        assert.throws(function () {
+            nlcstTest({
+                'type' : 'PunctuationNode'
+            });
+        }, /Missing `value` attribute for text `\[object Object\]`/);
+    });
+
     it('should NOT throw on `Node`s with neither `children` not `value`',
         function () {
             assert.doesNotThrow(function () {
@@ -233,7 +241,7 @@ describe('nlcstTest(value)', function () {
         }
     );
 
-    it('should NOT throw on `Parent`s without `children`', function () {
+    it('should NOT throw on `Parent`s with `children`', function () {
         assert.doesNotThrow(function () {
             nlcstTest({
                 'type' : 'Parent',
@@ -247,7 +255,7 @@ describe('nlcstTest(value)', function () {
         });
     });
 
-    it('should NOT throw on `ParagraphNode`s without `children`',
+    it('should NOT throw on `ParagraphNode`s with `children`',
         function () {
             assert.doesNotThrow(function () {
                 nlcstTest({
@@ -263,7 +271,7 @@ describe('nlcstTest(value)', function () {
         }
     );
 
-    it('should NOT throw on `SentenceNode`s without `children`', function () {
+    it('should NOT throw on `SentenceNode`s with `children`', function () {
         assert.doesNotThrow(function () {
             nlcstTest({
                 'type' : 'SentenceNode',
@@ -277,7 +285,7 @@ describe('nlcstTest(value)', function () {
         });
     });
 
-    it('should NOT throw on `WordNode`s without `children`', function () {
+    it('should NOT throw on `WordNode`s with `children`', function () {
         assert.doesNotThrow(function () {
             nlcstTest({
                 'type' : 'WordNode',
@@ -290,38 +298,6 @@ describe('nlcstTest(value)', function () {
             });
         });
     });
-
-    it('should NOT throw on `WhiteSpaceNode`s without `children`',
-        function () {
-            assert.doesNotThrow(function () {
-                nlcstTest({
-                    'type' : 'WhiteSpaceNode',
-                    'children' : [
-                        {
-                            'type' : 'Text',
-                            'value' : 'Value'
-                        }
-                    ]
-                });
-            });
-        }
-    );
-
-    it('should NOT throw on `PunctuationNode`s without `children`',
-        function () {
-            assert.doesNotThrow(function () {
-                nlcstTest({
-                    'type' : 'PunctuationNode',
-                    'children' : [
-                        {
-                            'type' : 'Text',
-                            'value' : 'Value'
-                        }
-                    ]
-                });
-            });
-        }
-    );
 
     it('should NOT throw on `Text`s with `value`', function () {
         assert.doesNotThrow(function () {
@@ -336,6 +312,33 @@ describe('nlcstTest(value)', function () {
         assert.doesNotThrow(function () {
             nlcstTest({
                 'type' : 'TextNode',
+                'value' : 'Value'
+            });
+        });
+    });
+
+    it('should NOT throw on `WhiteSpaceNode`s with `value`', function () {
+        assert.doesNotThrow(function () {
+            nlcstTest({
+                'type' : 'WhiteSpaceNode',
+                'value' : 'Value'
+            });
+        });
+    });
+
+    it('should NOT throw on `SymbolNode`s with `value`', function () {
+        assert.doesNotThrow(function () {
+            nlcstTest({
+                'type' : 'SymbolNode',
+                'value' : 'Value'
+            });
+        });
+    });
+
+    it('should NOT throw on `PunctuationNode`s with `value`', function () {
+        assert.doesNotThrow(function () {
+            nlcstTest({
+                'type' : 'PunctuationNode',
                 'value' : 'Value'
             });
         });
