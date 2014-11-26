@@ -1,4 +1,4 @@
-# nlcst-test [![Build Status](https://img.shields.io/travis/wooorm/nlcst-test.svg)](https://travis-ci.org/wooorm/nlcst-test) [![Coverage Status](https://img.shields.io/coveralls/wooorm/nlcst-test.svg)](https://coveralls.io/r/wooorm/nlcst-test?branch=master)
+# nlcst-test [![Build Status](https://img.shields.io/travis/wooorm/nlcst-test.svg?style=flat)](https://travis-ci.org/wooorm/nlcst-test) [![Coverage Status](https://img.shields.io/coveralls/wooorm/nlcst-test.svg?style=flat)](https://coveralls.io/r/wooorm/nlcst-test?branch=master)
 
 Validate an [NLCST](https://github.com/wooorm/nlcst) node.
 
