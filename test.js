@@ -10,6 +10,10 @@ var nlcstTest,
 nlcstTest = require('./');
 assert = require('assert');
 
+/**
+ * Tests.
+ */
+
 describe('nlcstTest(value)', function () {
     it('should throw on omitted values', function () {
         assert.throws(function () {
