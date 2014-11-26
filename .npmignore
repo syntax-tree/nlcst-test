@@ -1,11 +1,9 @@
 .*
 *.log
-bower_components/
-bower.json
-components/
 build/
+coverage/
+node_module/
+bower.json
 component.json
 test.js
-coverage/
 History.md
-
