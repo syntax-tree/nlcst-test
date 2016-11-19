@@ -1,13 +1,23 @@
 language: node_js
-script: npm run-script test-travis
 node_js:
-- '0.10'
-- '0.11'
-after_script: npm install coveralls@2.10.0 && cat ./coverage/lcov.info | coveralls
+- '4.0'
+- '7.0'
+after_script: bash <(curl -s https://codecov.io/bash)
+sudo: false
 deploy:
-  provider: npm
-  email: tituswormer@gmail.com
-  api_key:
-    secure: YVky4ydplP83W+5n9s1U9vvlL53G/6u6/jSgVfJsdamM4Xh9VTjlF3ljTGztFoAK7qzLYzrZYNb9gSM/rFud5ah9hJuk1k0+hqB3qiRZV7SriXV8JnUIxV8HZezu7r4FKWmbTM3ydj09nE4M4L21LMxnQ3impb0u1G7r1CAtvNE=
-  on:
-    repo: wooorm/nlcst-test
+  - provider: npm
+    email: tituswormer@gmail.com
+    api_key:
+      secure: PCWvrojD+Q2aXU16SscuTLh6+QHpam49PtXCMasr5HgRth4TL7DHotK3dtGNOs+CE5WgUCbpXc49MKz8Hbb4aU6Tv0jaVPqW6UCf1Z/QkfDrs4n1lTQLx2nhA+kWQ24WOgw0ogxsSO06bgfL6k4vuQGloKE4KWniUX5fWjjuBFc=
+    on:
+      tags: true
+      node: '4.0'
+  - provider: releases
+    api_key:
+      secure: BKjnHlfFBAArikqXStceLfDQD4P+zSer83O9fumSplDQNVIz6qJoDn1tlVQQ1+OcQKYbtiLtsHnTx1Ml5I6TthLwJKhnB2N6SQurDe25BH5cnmS4oU7rMoLj0ohZjixNdrxsH5s7B4EVWv2DK4cVm+4WXocVW7PWeLETVvd7a4k=
+    file:
+      - "nlcst-test.js"
+      - "nlcst-test.min.js"
+    on:
+      tags: true
+      node: '7.0'

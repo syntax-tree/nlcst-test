@@ -1,9 +1,0 @@
-.*
-*.log
-build/
-coverage/
-node_module/
-bower.json
-component.json
-test.js
-History.md
