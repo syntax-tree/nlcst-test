@@ -43,13 +43,13 @@ methods from [`unist-util-assert`][unist-util-assert] are also included.
 
 <!-- Definitions -->
 
-[travis-badge]: https://img.shields.io/travis/wooorm/nlcst-test.svg
+[travis-badge]: https://img.shields.io/travis/syntax-tree/nlcst-test.svg
 
-[travis]: https://travis-ci.org/wooorm/nlcst-test
+[travis]: https://travis-ci.org/syntax-tree/nlcst-test
 
-[codecov-badge]: https://img.shields.io/codecov/c/github/wooorm/nlcst-test.svg
+[codecov-badge]: https://img.shields.io/codecov/c/github/syntax-tree/nlcst-test.svg
 
-[codecov]: https://codecov.io/github/wooorm/nlcst-test
+[codecov]: https://codecov.io/github/syntax-tree/nlcst-test
 
 [npm]: https://docs.npmjs.com/cli/install
 
@@ -57,6 +57,6 @@ methods from [`unist-util-assert`][unist-util-assert] are also included.
 
 [author]: http://wooorm.com
 
-[nlcst]: https://github.com/wooorm/nlcst
+[nlcst]: https://github.com/syntax-tree/nlcst
 
-[unist-util-assert]: https://github.com/wooorm/unist-util-assert
+[unist-util-assert]: https://github.com/syntax-tree/unist-util-assert

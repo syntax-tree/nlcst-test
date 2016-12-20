@@ -10,8 +10,8 @@
     "util",
     "utility"
   ],
-  "repository": "https://github.com/wooorm/nlcst-test",
-  "bugs": "https://github.com/wooorm/nlcst-test/issues",
+  "repository": "https://github.com/syntax-tree/nlcst-test",
+  "bugs": "https://github.com/syntax-tree/nlcst-test/issues",
   "author": "Titus Wormer <tituswormer@gmail.com> (http://wooorm.com)",
   "contributors": [
     "Titus Wormer <tituswormer@gmail.com> (http://wooorm.com)"
