@@ -10,7 +10,8 @@ var unist = require('unist-util-assert');
 var nlcst = zwitch('type');
 
 /* Expose. */
-module.exports = exports = unist.wrap(nlcst);
+exports = unist.wrap(nlcst);
+module.exports = exports;
 
 exports.parent = unist.wrap(parent);
 exports.text = unist.text;
@@ -19,7 +20,8 @@ exports.wrap = unist.wrap;
 exports.all = mapz(exports, {key: 'children', indices: false});
 
 /* Core interface. */
-nlcst.invalid = nlcst.unknown = unknown;
+nlcst.unknown = unknown;
+nlcst.invalid = unknown;
 
 /* Per-type handling. */
 nlcst.handlers = {
