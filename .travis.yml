@@ -1,7 +1,7 @@
 language: node_js
 node_js:
 - '4.0'
-- '8.0'
+- '9.0'
 after_script: bash <(curl -s https://codecov.io/bash)
 sudo: false
 deploy:
@@ -11,7 +11,7 @@ deploy:
       secure: PCWvrojD+Q2aXU16SscuTLh6+QHpam49PtXCMasr5HgRth4TL7DHotK3dtGNOs+CE5WgUCbpXc49MKz8Hbb4aU6Tv0jaVPqW6UCf1Z/QkfDrs4n1lTQLx2nhA+kWQ24WOgw0ogxsSO06bgfL6k4vuQGloKE4KWniUX5fWjjuBFc=
     on:
       tags: true
-      node: '4.0'
+      node: '9.0'
   - provider: releases
     api_key:
       secure: BKjnHlfFBAArikqXStceLfDQD4P+zSer83O9fumSplDQNVIz6qJoDn1tlVQQ1+OcQKYbtiLtsHnTx1Ml5I6TthLwJKhnB2N6SQurDe25BH5cnmS4oU7rMoLj0ohZjixNdrxsH5s7B4EVWv2DK4cVm+4WXocVW7PWeLETVvd7a4k=
@@ -20,4 +20,4 @@ deploy:
       - "nlcst-test.min.js"
     on:
       tags: true
-      node: '8.0'
+      node: '9.0'
