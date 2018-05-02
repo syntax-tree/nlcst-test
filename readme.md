@@ -13,17 +13,17 @@ npm install nlcst-test
 ## Usage
 
 ```javascript
-var assert = require('nlcst-test');
+var assert = require('nlcst-test')
 
-assert({type: 'RootNode', children: []});
-assert({type: 'SourceNode', value: 'fn()'});
-assert({type: 'WordNode', children: [{type: 'TextNode', value: 'Hi'}]});
+assert({type: 'RootNode', children: []})
+assert({type: 'SourceNode', value: 'fn()'})
+assert({type: 'WordNode', children: [{type: 'TextNode', value: 'Hi'}]})
 // All OK.
 
-assert({children: []});
+assert({children: []})
 // AssertionError: node should have a type: `{ children: [] }`
 
-assert({type: 'WordNode', value: 'foo'});
+assert({type: 'WordNode', value: 'foo'})
 // AssertionError: parent should have children: `{ type: 'WordNode', value: 'foo' }`
 ```
 

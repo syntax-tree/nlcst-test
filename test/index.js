@@ -1,7 +1,7 @@
-'use strict';
+'use strict'
 
 /* eslint-disable import/no-unassigned-import */
 
-require('./node');
-require('./children');
-require('./root');
+require('./node')
+require('./children')
+require('./root')
