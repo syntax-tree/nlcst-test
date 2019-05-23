@@ -54,13 +54,6 @@
   "xo": {
     "prettier": true,
     "esnext": false,
-    "rules": {
-      "guard-for-in": "off",
-      "no-var": "off",
-      "prefer-arrow-callback": "off",
-      "no-eq-null": "off",
-      "eqeqeq": "off"
-    },
     "ignores": [
       "nlcst-test.js"
     ]
