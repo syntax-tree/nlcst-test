@@ -1,16 +1,16 @@
 language: node_js
 node_js:
-- lts/boron
-- node
+  - lts/dubnium
+  - node
 after_script: bash <(curl -s https://codecov.io/bash)
 sudo: false
 deploy:
   provider: releases
   skip_cleanup: true
   api_key:
-    secure: BKjnHlfFBAArikqXStceLfDQD4P+zSer83O9fumSplDQNVIz6qJoDn1tlVQQ1+OcQKYbtiLtsHnTx1Ml5I6TthLwJKhnB2N6SQurDe25BH5cnmS4oU7rMoLj0ohZjixNdrxsH5s7B4EVWv2DK4cVm+4WXocVW7PWeLETVvd7a4k=
+    secure: hl8bWqvIjdtPwTxkT9ojb+Uie/7QFf1/N7oU6G4lgAKRouBL+Bk4pEd1cuG1OxOjRc5Z7McbJpKd7GSpTdXa3VGVQOPHs9eMc97yOEdof/iSq+udxH9TnjrCvN1NE18ZlFzdXfzqcBSOXc21P4dZ/+KdT+i6xZoFJVuPFcXwA+s=
   file:
-    - "nlcst-test.js"
-    - "nlcst-test.min.js"
+    - 'nlcst-test.js'
+    - 'nlcst-test.min.js'
   on:
     tags: true
