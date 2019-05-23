@@ -1,4 +1,12 @@
-# nlcst-test [![Build Status][travis-badge]][travis] [![Coverage Status][codecov-badge]][codecov]
+# nlcst-test
+
+[![Build][build-badge]][build]
+[![Coverage][coverage-badge]][coverage]
+[![Downloads][downloads-badge]][downloads]
+[![Size][size-badge]][size]
+[![Sponsors][sponsors-badge]][collective]
+[![Backers][backers-badge]][collective]
+[![Chat][chat-badge]][chat]
 
 Assert [nlcst][] nodes.
 
@@ -51,13 +59,31 @@ repository, organisation, or community you agree to abide by its terms.
 
 <!-- Definitions -->
 
-[travis-badge]: https://img.shields.io/travis/syntax-tree/nlcst-test.svg
+[build-badge]: https://img.shields.io/travis/syntax-tree/nlcst-test.svg
 
-[travis]: https://travis-ci.org/syntax-tree/nlcst-test
+[build]: https://travis-ci.org/syntax-tree/nlcst-test
 
-[codecov-badge]: https://img.shields.io/codecov/c/github/syntax-tree/nlcst-test.svg
+[coverage-badge]: https://img.shields.io/codecov/c/github/syntax-tree/nlcst-test.svg
 
-[codecov]: https://codecov.io/github/syntax-tree/nlcst-test
+[coverage]: https://codecov.io/github/syntax-tree/nlcst-test
+
+[downloads-badge]: https://img.shields.io/npm/dm/nlcst-test.svg
+
+[downloads]: https://www.npmjs.com/package/nlcst-test
+
+[size-badge]: https://img.shields.io/bundlephobia/minzip/nlcst-test.svg
+
+[size]: https://bundlephobia.com/result?p=nlcst-test
+
+[sponsors-badge]: https://opencollective.com/unified/sponsors/badge.svg
+
+[backers-badge]: https://opencollective.com/unified/backers/badge.svg
+
+[collective]: https://opencollective.com/unified
+
+[chat-badge]: https://img.shields.io/badge/join%20the%20community-on%20spectrum-7b16ff.svg
+
+[chat]: https://spectrum.chat/unified/syntax-tree
 
 [npm]: https://docs.npmjs.com/cli/install
 
