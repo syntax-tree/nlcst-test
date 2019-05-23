@@ -19,7 +19,7 @@ test('assert(RootNode)', function(t) {
         children: [{type: 'RootNode', children: []}]
       })
     },
-    /`RootNode` should not have a parent: `{ type: 'RootNode', children: \[] }` in `{ type: 'ParagraphNode',\n {2}children: \[ { type: 'RootNode', children: \[] } ] }`$/,
+    /`RootNode` should not have a parent: `{ type: 'RootNode', children: \[] }`/,
     'should throw if a `RootNode` has a parent'
   )
 

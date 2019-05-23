@@ -47,5 +47,5 @@ function parent(node) {
 
 function RootNode(node, ancestor) {
   parent(node)
-  assert.equal(ancestor, undefined, '`RootNode` should not have a parent')
+  assert.strictEqual(ancestor, undefined, '`RootNode` should not have a parent')
 }
