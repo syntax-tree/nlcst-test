@@ -1,15 +1,12 @@
 'use strict'
 
-/* Dependencies. */
 var assert = require('assert')
 var zwitch = require('zwitch')
 var mapz = require('mapz')
 var unist = require('unist-util-assert')
 
-/* Construct. */
 var nlcst = zwitch('type')
 
-/* Expose. */
 exports = unist.wrap(nlcst)
 module.exports = exports
 
@@ -19,11 +16,11 @@ exports.void = unist.void
 exports.wrap = unist.wrap
 exports.all = mapz(exports, {key: 'children', indices: false})
 
-/* Core interface. */
+// Core interface.
 nlcst.unknown = unknown
 nlcst.invalid = unknown
 
-/* Per-type handling. */
+// Per-type handling.
 nlcst.handlers = {
   RootNode: unist.wrap(RootNode),
   ParagraphNode: exports.parent,
