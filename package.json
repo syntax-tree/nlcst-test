@@ -28,7 +28,7 @@
   ],
   "dependencies": {
     "mapz": "^1.0.0",
-    "unist-util-assert": "^1.0.0",
+    "unist-util-assert": "^2.0.0",
     "zwitch": "^1.0.0"
   },
   "devDependencies": {
