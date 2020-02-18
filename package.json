@@ -1,14 +1,17 @@
 {
   "name": "nlcst-test",
   "version": "1.0.3",
-  "description": "Assert nlcst nodes",
+  "description": "nlcst utility to check assert an nlcst node",
   "license": "MIT",
   "keywords": [
-    "assert",
-    "test",
+    "unist",
     "nlcst",
+    "nlcst-util",
     "util",
-    "utility"
+    "utility",
+    "assert",
+    "check",
+    "test"
   ],
   "repository": "syntax-tree/nlcst-test",
   "bugs": "https://github.com/syntax-tree/nlcst-test/issues",
