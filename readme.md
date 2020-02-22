@@ -45,6 +45,15 @@ If `tree` is a [parent][], all [child][]ren will be asserted as well.
 The `assert.parent`, `assert.text`, `assert.void`, and `assert.wrap`
 methods from [`unist-util-assert`][unist-util-assert] are also included.
 
+## Related
+
+*   [`unist-util-assert`](https://github.com/syntax-tree/unist-util-assert)
+    — assert unist trees
+*   [`mdast-util-assert`](https://github.com/syntax-tree/mdast-util-assert)
+    — Assert mdast trees
+*   [`hast-util-assert`](https://github.com/syntax-tree/hast-util-assert)
+    — assert hast trees
+
 ## Contribute
 
 See [`contributing.md` in `syntax-tree/.github`][contributing] for ways to get
