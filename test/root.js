@@ -3,9 +3,9 @@
 var test = require('tape')
 var assert = require('..')
 
-test('assert(RootNode)', function(t) {
+test('assert(RootNode)', function (t) {
   t.throws(
-    function() {
+    function () {
       assert({type: 'RootNode'})
     },
     /parent should have `children`: `{ type: 'RootNode' }`$/,
@@ -13,7 +13,7 @@ test('assert(RootNode)', function(t) {
   )
 
   t.throws(
-    function() {
+    function () {
       assert({
         type: 'ParagraphNode',
         children: [{type: 'RootNode', children: []}]
