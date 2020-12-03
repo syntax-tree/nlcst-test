@@ -70,9 +70,9 @@ abide by its terms.
 
 <!-- Definitions -->
 
-[build-badge]: https://img.shields.io/travis/syntax-tree/nlcst-test.svg
+[build-badge]: https://github.com/syntax-tree/nlcst-test/workflows/main/badge.svg
 
-[build]: https://travis-ci.org/syntax-tree/nlcst-test
+[build]: https://github.com/syntax-tree/nlcst-test/actions
 
 [coverage-badge]: https://img.shields.io/codecov/c/github/syntax-tree/nlcst-test.svg
 
