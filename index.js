@@ -1,3 +1,8 @@
+/**
+ * @typedef {import('unist').Node} Node
+ * @typedef {import('unist').Parent} Parent
+ */
+
 import nodeAssert from 'assert'
 import {zwitch} from 'zwitch'
 import {mapz} from 'mapz'
@@ -54,15 +59,29 @@ var nlcst = zwitch('type', {
   }
 })
 
+/**
+ * @param {unknown} node
+ * @param {Parent} [ancestor]
+ * @returns {asserts node is Node}
+ */
 function unknown(node, ancestor) {
   unistAssert(node, ancestor)
 }
 
+/**
+ * @param {unknown} node
+ * @returns {asserts node is Parent}
+ */
 function assertParent(node) {
   unistParent(node)
   all(node)
 }
 
+/**
+ * @param {unknown} node
+ * @param {Parent} [ancestor]
+ * @returns {asserts node is Parent}
+ */
 function RootNode(node, ancestor) {
   parent(node)
   nodeAssert.strictEqual(
