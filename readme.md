@@ -12,6 +12,9 @@
 
 ## Install
 
+This package is [ESM only](https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c):
+Node 12+ is needed to use it and it must be `import`ed instead of `require`d.
+
 [npm][]:
 
 ```sh
@@ -21,7 +24,7 @@ npm install nlcst-test
 ## Use
 
 ```js
-var assert = require('nlcst-test')
+import {assert} from 'nlcst-test'
 
 assert({type: 'RootNode', children: []})
 assert({type: 'SourceNode', value: 'fn()'})
@@ -37,13 +40,16 @@ assert({type: 'WordNode', value: 'foo'})
 
 ## API
 
+This package exports the following identifiers: `assert`, `parent`, `literal`,
+`_void`, and `wrap`.
+There is no default export.
+
 ### `assert(tree)`
 
 Assert that [`tree`][tree] is a valid [nlcst][] [node][].
 If `tree` is a [parent][], all [child][]ren will be asserted as well.
 
-The `assert.parent`, `assert.text`, `assert.void`, and `assert.wrap`
-methods from [`unist-util-assert`][unist-util-assert] are also included.
+The other methods come from [`unist-util-assert`][unist-util-assert].
 
 ## Related
 

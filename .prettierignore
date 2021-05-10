@@ -1,5 +1,2 @@
 coverage/
-nlcst-test.js
-nlcst-test.min.js
-*.json
 *.md

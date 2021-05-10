@@ -1,48 +1,73 @@
-'use strict'
+import nodeAssert from 'assert'
+import {zwitch} from 'zwitch'
+import {mapz} from 'mapz'
+import {
+  assert as unistAssert,
+  parent as unistParent,
+  literal,
+  _void,
+  wrap
+} from 'unist-util-assert'
 
-var assert = require('assert')
-var zwitch = require('zwitch')
-var mapz = require('mapz')
-var unist = require('unist-util-assert')
-
-var nlcst = zwitch('type')
-
-exports = unist.wrap(nlcst)
-module.exports = exports
-
-exports.parent = unist.wrap(parent)
-exports.text = unist.text
-exports.void = unist.void
-exports.wrap = unist.wrap
-exports.all = mapz(exports, {key: 'children', indices: false})
-
-// Core interface.
-nlcst.unknown = unknown
-nlcst.invalid = unknown
-
-// Per-type handling.
-nlcst.handlers = {
-  RootNode: unist.wrap(RootNode),
-  ParagraphNode: exports.parent,
-  SentenceNode: exports.parent,
-  WordNode: exports.parent,
-  TextNode: exports.text,
-  SymbolNode: exports.text,
-  PunctuationNode: exports.text,
-  WhiteSpaceNode: exports.text,
-  SourceNode: exports.text
+/**
+ * Assert that `node` is a valid nlcst node.
+ * If `node` is a parent, all children will be asserted too.
+ *
+ * @param {unknown} [node]
+ * @param {Parent} [parent]
+ * @returns {asserts node is Node}
+ */
+export function assert(node, parent) {
+  return wrap(nlcst)(node, parent)
 }
+
+/**
+ * Assert that `node` is a valid nlcst parent.
+ *
+ * @param {unknown} [node]
+ * @param {Parent} [parent]
+ * @returns {asserts node is Parent}
+ */
+export function parent(node, parent) {
+  return wrap(assertParent)(node, parent)
+}
+
+export {literal, _void, wrap}
+
+var all = mapz(assert, {key: 'children'})
+
+var nlcst = zwitch('type', {
+  // Core interface.
+  unknown,
+  invalid: unknown,
+  // Per-type handling.
+  handlers: {
+    RootNode: wrap(RootNode),
+    ParagraphNode: parent,
+    SentenceNode: parent,
+    WordNode: parent,
+    TextNode: literal,
+    SymbolNode: literal,
+    PunctuationNode: literal,
+    WhiteSpaceNode: literal,
+    SourceNode: literal
+  }
+})
 
 function unknown(node, ancestor) {
-  unist(node, ancestor)
+  unistAssert(node, ancestor)
 }
 
-function parent(node) {
-  unist.parent(node)
-  exports.all(node)
+function assertParent(node) {
+  unistParent(node)
+  all(node)
 }
 
 function RootNode(node, ancestor) {
   parent(node)
-  assert.strictEqual(ancestor, undefined, '`RootNode` should not have a parent')
+  nodeAssert.strictEqual(
+    ancestor,
+    undefined,
+    '`RootNode` should not have a parent'
+  )
 }

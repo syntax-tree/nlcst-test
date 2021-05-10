@@ -1,8 +1,5 @@
 .DS_Store
 *.log
-.nyc_output/
 coverage/
 node_modules/
-nlcst-test.js
-nlcst-test.min.js
 yarn.lock

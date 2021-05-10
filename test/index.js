@@ -1,7 +1,5 @@
-'use strict'
-
 /* eslint-disable import/no-unassigned-import */
-require('./node')
-require('./children')
-require('./root')
+import './node.js'
+import './children.js'
+import './root.js'
 /* eslint-enable import/no-unassigned-import */
