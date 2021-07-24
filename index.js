@@ -3,7 +3,7 @@
  * @typedef {import('unist').Parent} Parent
  */
 
-import nodeAssert from 'assert'
+import nodeAssert from 'node:assert'
 import {zwitch} from 'zwitch'
 import {mapz} from 'mapz'
 import {
