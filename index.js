@@ -39,22 +39,34 @@ export function parent(node, parent) {
 
 export {literal, _void, wrap}
 
+// @ts-expect-error: fine.
 const all = mapz(assert, {key: 'children'})
 
 const nlcst = zwitch('type', {
   // Core interface.
+  // @ts-expect-error: fine.
   unknown,
+  // @ts-expect-error: fine.
   invalid: unknown,
   // Per-type handling.
   handlers: {
+    // @ts-expect-error: fine.
     RootNode: wrap(RootNode),
+    // @ts-expect-error: fine.
     ParagraphNode: parent,
+    // @ts-expect-error: fine.
     SentenceNode: parent,
+    // @ts-expect-error: fine.
     WordNode: parent,
+    // @ts-expect-error: fine.
     TextNode: literal,
+    // @ts-expect-error: fine.
     SymbolNode: literal,
+    // @ts-expect-error: fine.
     PunctuationNode: literal,
+    // @ts-expect-error: fine.
     WhiteSpaceNode: literal,
+    // @ts-expect-error: fine.
     SourceNode: literal
   }
 })
