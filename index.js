@@ -39,9 +39,9 @@ export function parent(node, parent) {
 
 export {literal, _void, wrap}
 
-var all = mapz(assert, {key: 'children'})
+const all = mapz(assert, {key: 'children'})
 
-var nlcst = zwitch('type', {
+const nlcst = zwitch('type', {
   // Core interface.
   unknown,
   invalid: unknown,

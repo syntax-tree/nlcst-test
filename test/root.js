@@ -1,9 +1,9 @@
 import test from 'tape'
 import {assert} from '../index.js'
 
-test('assert(RootNode)', function (t) {
+test('assert(RootNode)', (t) => {
   t.throws(
-    function () {
+    () => {
       assert({type: 'RootNode'})
     },
     /parent should have `children`: `{ type: 'RootNode' }`$/,
@@ -11,7 +11,7 @@ test('assert(RootNode)', function (t) {
   )
 
   t.throws(
-    function () {
+    () => {
       assert({
         type: 'ParagraphNode',
         children: [{type: 'RootNode', children: []}]
