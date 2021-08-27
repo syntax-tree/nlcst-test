@@ -1,6 +1,9 @@
 /**
- * @typedef {import('unist').Node} Node
- * @typedef {import('unist').Parent} Parent
+ * @typedef {import('unist').Parent} UnistParent
+ * @typedef {import('nlcst').Root} Root
+ * @typedef {import('nlcst').Content} Content
+ * @typedef {Root|Content} Node
+ * @typedef {Extract<Node, UnistParent>} Parent
  */
 
 import nodeAssert from 'node:assert'
@@ -92,7 +95,7 @@ function assertParent(node) {
 /**
  * @param {unknown} node
  * @param {Parent} [ancestor]
- * @returns {asserts node is Parent}
+ * @returns {asserts node is Root}
  */
 function RootNode(node, ancestor) {
   parent(node)

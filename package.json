@@ -32,6 +32,7 @@
     "index.js"
   ],
   "dependencies": {
+    "@types/nlcst": "^1.0.0",
     "@types/unist": "^2.0.0",
     "mapz": "^2.0.0",
     "unist-util-assert": "^3.0.0",
