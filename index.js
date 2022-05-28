@@ -13,7 +13,6 @@ import {
   assert as unistAssert,
   parent as unistParent,
   literal,
-  _void,
   wrap
 } from 'unist-util-assert'
 
@@ -39,8 +38,6 @@ export function assert(node, parent) {
 export function parent(node, parent) {
   return wrap(assertParent)(node, parent)
 }
-
-export {literal, _void, wrap}
 
 // @ts-expect-error: fine.
 const all = mapz(assert, {key: 'children'})
@@ -105,3 +102,5 @@ function RootNode(node, ancestor) {
     '`RootNode` should not have a parent'
   )
 }
+
+export {_void, literal, wrap} from 'unist-util-assert'
