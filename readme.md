@@ -8,17 +8,55 @@
 [![Backers][backers-badge]][collective]
 [![Chat][chat-badge]][chat]
 
-[**nlcst**][nlcst] utility to assert trees.
+[nlcst][] utility to assert trees.
+
+## Contents
+
+*   [What is this?](#what-is-this)
+*   [When should I use this?](#when-should-i-use-this)
+*   [Install](#install)
+*   [Use](#use)
+*   [API](#api)
+    *   [`assert(tree)`](#asserttree)
+*   [Types](#types)
+*   [Compatibility](#compatibility)
+*   [Related](#related)
+*   [Contribute](#contribute)
+*   [License](#license)
+
+## What is this?
+
+This package is a tiny utility that helps you deal with nodes.
+
+## When should I use this?
+
+This utility is typically useful when you expect certain nodes in your APIs
+and want to make sure they’re valid and as expected.
+
+A different utility, [`unist-util-assert`][unist-util-assert], does the same but
+for any [unist][] node.
 
 ## Install
 
-This package is [ESM only](https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c):
-Node 12+ is needed to use it and it must be `import`ed instead of `require`d.
-
-[npm][]:
+This package is [ESM only][esm].
+In Node.js (version 12.20+, 14.14+, 16.0+, 18.0+), install with [npm][]:
 
 ```sh
 npm install nlcst-test
+```
+
+In Deno with [`esm.sh`][esmsh]:
+
+```js
+import {assert} from "https://esm.sh/nlcst-test@3"
+```
+
+In browsers with [`esm.sh`][esmsh]:
+
+```html
+<script type="module">
+  import {assert} from "https://esm.sh/nlcst-test@3?bundle"
+</script>
 ```
 
 ## Use
@@ -40,8 +78,8 @@ assert({type: 'WordNode', value: 'foo'})
 
 ## API
 
-This package exports the following identifiers: `assert`, `parent`, `literal`,
-`_void`, and `wrap`.
+This package exports the identifiers `assert`, `parent`, `literal`, `_void`,
+and `wrap`.
 There is no default export.
 
 ### `assert(tree)`
@@ -49,21 +87,42 @@ There is no default export.
 Assert that [`tree`][tree] is a valid [nlcst][] [node][].
 If `tree` is a [parent][], all [child][]ren will be asserted as well.
 
-The other methods come from [`unist-util-assert`][unist-util-assert].
+The `parent`, `literal`, `_void`, and `wrap` methods from
+[`unist-util-assert`][unist-util-assert] are also exported.
+
+###### Throws
+
+When `node`, or one of its children, is not a valid nlcst node.
+
+###### Returns
+
+Nothing.
+
+## Types
+
+This package is fully typed with [TypeScript][].
+It does not export additional types.
+
+## Compatibility
+
+Projects maintained by the unified collective are compatible with all maintained
+versions of Node.js.
+As of now, that is Node.js 12.20+, 14.14+, 16.0+, and 18.0+.
+Our projects sometimes work with older versions, but this is not guaranteed.
 
 ## Related
 
 *   [`unist-util-assert`](https://github.com/syntax-tree/unist-util-assert)
     — assert unist trees
 *   [`mdast-util-assert`](https://github.com/syntax-tree/mdast-util-assert)
-    — Assert mdast trees
+    — assert mdast trees
 *   [`hast-util-assert`](https://github.com/syntax-tree/hast-util-assert)
     — assert hast trees
 
 ## Contribute
 
-See [`contributing.md` in `syntax-tree/.github`][contributing] for ways to get
-started.
+See [`contributing.md`][contributing] in [`syntax-tree/.github`][health] for
+ways to get started.
 See [`support.md`][support] for ways to get help.
 
 This project has a [code of conduct][coc].
@@ -104,21 +163,31 @@ abide by its terms.
 
 [npm]: https://docs.npmjs.com/cli/install
 
+[esm]: https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c
+
+[esmsh]: https://esm.sh
+
+[typescript]: https://www.typescriptlang.org
+
 [license]: license
 
 [author]: https://wooorm.com
 
-[contributing]: https://github.com/syntax-tree/.github/blob/HEAD/contributing.md
+[health]: https://github.com/syntax-tree/.github
 
-[support]: https://github.com/syntax-tree/.github/blob/HEAD/support.md
+[contributing]: https://github.com/syntax-tree/.github/blob/main/contributing.md
 
-[coc]: https://github.com/syntax-tree/.github/blob/HEAD/code-of-conduct.md
+[support]: https://github.com/syntax-tree/.github/blob/main/support.md
+
+[coc]: https://github.com/syntax-tree/.github/blob/main/code-of-conduct.md
 
 [nlcst]: https://github.com/syntax-tree/nlcst
 
 [unist-util-assert]: https://github.com/syntax-tree/unist-util-assert
 
 [tree]: https://github.com/syntax-tree/unist#tree
+
+[unist]: https://github.com/syntax-tree/unist
 
 [child]: https://github.com/syntax-tree/unist#child
 
