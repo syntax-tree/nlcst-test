@@ -17,7 +17,12 @@
 *   [Install](#install)
 *   [Use](#use)
 *   [API](#api)
-    *   [`assert(tree)`](#asserttree)
+    *   [`assert(tree[, parent])`](#asserttree-parent)
+    *   [`parent(tree[, parent])`](#parenttree-parent)
+    *   [`literal(node[, parent])`](#literalnode-parent)
+    *   [`_void(node[, parent])`](#_voidnode-parent)
+    *   [`wrap(fn)`](#wrapfn)
+    *   [`AssertionError`](#assertionerror)
 *   [Types](#types)
 *   [Compatibility](#compatibility)
 *   [Related](#related)
@@ -39,7 +44,7 @@ for any [unist][] node.
 ## Install
 
 This package is [ESM only][esm].
-In Node.js (version 12.20+, 14.14+, 16.0+, 18.0+), install with [npm][]:
+In Node.js (version 14.14+ and 16.0+), install with [npm][]:
 
 ```sh
 npm install nlcst-test
@@ -48,14 +53,14 @@ npm install nlcst-test
 In Deno with [`esm.sh`][esmsh]:
 
 ```js
-import {assert} from "https://esm.sh/nlcst-test@3"
+import {assert} from 'https://esm.sh/nlcst-test@3'
 ```
 
 In browsers with [`esm.sh`][esmsh]:
 
 ```html
 <script type="module">
-  import {assert} from "https://esm.sh/nlcst-test@3?bundle"
+  import {assert} from 'https://esm.sh/nlcst-test@3?bundle'
 </script>
 ```
 
@@ -78,36 +83,101 @@ assert({type: 'WordNode', value: 'foo'})
 
 ## API
 
-This package exports the identifiers `assert`, `parent`, `literal`, `_void`,
-and `wrap`.
+This package exports the identifiers [`_void`][void], [`assert`][assert],
+[`literal`][literal], [`parent`][parent], and [`wrap`][wrap].
 There is no default export.
 
-### `assert(tree)`
+### `assert(tree[, parent])`
 
-Assert that [`tree`][tree] is a valid [nlcst][] [node][].
-If `tree` is a [parent][], all [child][]ren will be asserted as well.
+Assert that `tree` is a valid nlcst [`Node`][node].
 
-The `parent`, `literal`, `_void`, and `wrap` methods from
-[`unist-util-assert`][unist-util-assert] are also exported.
+If `tree` is a parent, all children will be asserted too.
 
-###### Throws
+Supports unknown nlcst nodes.
 
-When `node`, or one of its children, is not a valid nlcst node.
+###### Parameters
+
+*   `tree` (`unknown`)
+    — thing to assert
+*   `parent` ([`Parent`][parent-node], optional)
+    — optional, valid parent
 
 ###### Returns
 
 Nothing.
 
+###### Throws
+
+When `tree` (or its descendants) is not an nlcst node
+([`AssertionError`][assertionerror]).
+
+### `parent(tree[, parent])`
+
+Assert that `tree` is a valid nlcst [`Parent`][parent-node].
+
+All children will be asserted too.
+
+Supports unknown nlcst nodes.
+
+###### Parameters
+
+*   `tree` (`unknown`)
+    — thing to assert
+*   `parent` ([`Parent`][parent-node], optional)
+    — optional, valid parent
+
+###### Returns
+
+Nothing.
+
+###### Throws
+
+When `tree` is not a parent or its descendants are not nodes
+([`AssertionError`][assertionerror])
+
+### `literal(node[, parent])`
+
+Assert that `node` is a valid nlcst [`Literal`][literal-node].
+
+Supports unknown nlcst nodes.
+
+###### Parameters
+
+*   `node` (`unknown`)
+    — thing to assert
+*   `parent` ([`Parent`][parent-node], optional)
+    — optional, valid parent
+
+###### Returns
+
+Nothing.
+
+###### Throws
+
+When `node` is not an nlcst literal ([`AssertionError`][assertionerror]).
+
+### `_void(node[, parent])`
+
+Re-exported from [`unist-util-assert`][unist-util-assert-void].
+
+### `wrap(fn)`
+
+Re-exported from [`unist-util-assert`][unist-util-assert-wrap].
+
+### `AssertionError`
+
+Re-exported from [`unist-util-assert`][unist-util-assert-assertionerror].
+
 ## Types
 
 This package is fully typed with [TypeScript][].
-It does not export additional types.
+It exports the additional type [`AssertionError`][assertionerror].
 
 ## Compatibility
 
 Projects maintained by the unified collective are compatible with all maintained
 versions of Node.js.
-As of now, that is Node.js 12.20+, 14.14+, 16.0+, and 18.0+.
+As of now, that is Node.js 14.14+ and 16.0+.
 Our projects sometimes work with older versions, but this is not guaranteed.
 
 ## Related
@@ -181,16 +251,32 @@ abide by its terms.
 
 [coc]: https://github.com/syntax-tree/.github/blob/main/code-of-conduct.md
 
-[nlcst]: https://github.com/syntax-tree/nlcst
-
 [unist-util-assert]: https://github.com/syntax-tree/unist-util-assert
-
-[tree]: https://github.com/syntax-tree/unist#tree
 
 [unist]: https://github.com/syntax-tree/unist
 
-[child]: https://github.com/syntax-tree/unist#child
+[node]: https://github.com/syntax-tree/unist#nodes
 
-[node]: https://github.com/syntax-tree/nlcst#nodes
+[parent-node]: https://github.com/syntax-tree/unist#parent-1
 
-[parent]: https://github.com/syntax-tree/nlcst#parent
+[literal-node]: https://github.com/syntax-tree/unist#literal
+
+[nlcst]: https://github.com/syntax-tree/nlcst
+
+[void]: #_voidnode-parent
+
+[assert]: #asserttree-parent
+
+[literal]: #literalnode-parent
+
+[parent]: #parenttree-parent
+
+[wrap]: #wrapfn
+
+[assertionerror]: #assertionerror
+
+[unist-util-assert-void]: https://github.com/syntax-tree/unist-util-assert#_voidnode-parent
+
+[unist-util-assert-wrap]: https://github.com/syntax-tree/unist-util-assert#wrapfn
+
+[unist-util-assert-assertionerror]: https://github.com/syntax-tree/unist-util-assert#assertionerror
