@@ -1,8 +1,9 @@
 /**
  * @typedef {import('unist').Parent} UnistParent
+ *
  * @typedef {import('nlcst').Root} Root
  * @typedef {import('nlcst').Content} Content
- * @typedef {Root|Content} Node
+ * @typedef {Root | Content} Node
  * @typedef {Extract<Node, UnistParent>} Parent
  */
 
@@ -32,48 +33,37 @@ export function assert(node, parent) {
  * Assert that `node` is a valid nlcst parent.
  *
  * @param {unknown} [node]
- * @param {Parent} [parent]
+ * @param {UnistParent | null | undefined} [parent]
  * @returns {asserts node is Parent}
  */
 export function parent(node, parent) {
   return wrap(assertParent)(node, parent)
 }
 
-// @ts-expect-error: fine.
-const all = mapz(assert, {key: 'children'})
-
 const nlcst = zwitch('type', {
   // Core interface.
-  // @ts-expect-error: fine.
   unknown,
-  // @ts-expect-error: fine.
   invalid: unknown,
   // Per-type handling.
   handlers: {
     // @ts-expect-error: fine.
     RootNode: wrap(RootNode),
-    // @ts-expect-error: fine.
     ParagraphNode: parent,
-    // @ts-expect-error: fine.
     SentenceNode: parent,
-    // @ts-expect-error: fine.
     WordNode: parent,
-    // @ts-expect-error: fine.
     TextNode: literal,
-    // @ts-expect-error: fine.
     SymbolNode: literal,
-    // @ts-expect-error: fine.
     PunctuationNode: literal,
-    // @ts-expect-error: fine.
     WhiteSpaceNode: literal,
-    // @ts-expect-error: fine.
     SourceNode: literal
   }
 })
 
+const all = mapz(nlcst, {key: 'children'})
+
 /**
  * @param {unknown} node
- * @param {Parent} [ancestor]
+ * @param {UnistParent | null | undefined} [ancestor]
  * @returns {asserts node is Node}
  */
 function unknown(node, ancestor) {
@@ -91,11 +81,11 @@ function assertParent(node) {
 
 /**
  * @param {unknown} node
- * @param {Parent} [ancestor]
+ * @param {Parent | null | undefined} [ancestor]
  * @returns {asserts node is Root}
  */
 function RootNode(node, ancestor) {
-  parent(node)
+  assertParent(node)
   nodeAssert.strictEqual(
     ancestor,
     undefined,
