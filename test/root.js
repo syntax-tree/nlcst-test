@@ -1,8 +1,9 @@
-import test from 'tape'
+import nodeAssert from 'node:assert/strict'
+import test from 'node:test'
 import {assert} from '../index.js'
 
-test('assert(RootNode)', (t) => {
-  t.throws(
+test('assert(RootNode)', () => {
+  nodeAssert.throws(
     () => {
       assert({type: 'RootNode'})
     },
@@ -10,7 +11,7 @@ test('assert(RootNode)', (t) => {
     'should throw if a `RootNode` is not a parent'
   )
 
-  t.throws(
+  nodeAssert.throws(
     () => {
       assert({
         type: 'ParagraphNode',
@@ -20,6 +21,4 @@ test('assert(RootNode)', (t) => {
     /`RootNode` should not have a parent: `{ type: 'RootNode', children: \[] }`/,
     'should throw if a `RootNode` has a parent'
   )
-
-  t.end()
 })
