@@ -2,4 +2,4 @@
  * @typedef {import('./lib/index.js').AssertionError} AssertionError
  */
 
-export {assert, parent, _void, literal, wrap} from './lib/index.js'
+export {_void, assert, literal, parent, wrap} from './lib/index.js'

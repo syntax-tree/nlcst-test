@@ -2,32 +2,36 @@ import nodeAssert from 'node:assert/strict'
 import test from 'node:test'
 import {assert} from '../index.js'
 
-test('children', () => {
-  nodeAssert.throws(
-    () => {
-      assert({type: 'ParagraphNode', children: {alpha: 'bravo'}})
-    },
-    /`children` should be an array: `{ type: 'ParagraphNode', children: { alpha: 'bravo' } }`$/,
-    'should throw if given a non-node child in children'
+test('children', async function (t) {
+  await t.test(
+    'should throw if given a non-node child in children',
+    async function () {
+      nodeAssert.throws(function () {
+        assert({type: 'ParagraphNode', children: {alpha: 'bravo'}})
+      }, /`children` should be an array: `{ type: 'ParagraphNode', children: { alpha: 'bravo' } }`$/)
+    }
   )
 
-  nodeAssert.throws(
-    () => {
-      assert({type: 'ParagraphNode', children: ['one']})
-    },
-    /node should be an object: `'one'` in `{ type: 'ParagraphNode', children: \[ 'one' ] }`$/,
-    'should throw if given a non-node child in children'
+  await t.test(
+    'should throw if given a non-node child in children',
+    async function () {
+      nodeAssert.throws(function () {
+        assert({type: 'ParagraphNode', children: ['one']})
+      }, /node should be an object: `'one'` in `{ type: 'ParagraphNode', children: \[ 'one' ] }`$/)
+    }
   )
 
-  nodeAssert.doesNotThrow(() => {
-    assert({
-      type: 'ParagraphNode',
-      children: [{type: 'TextNode', value: 'alpha'}]
+  await t.test('should not throw on vald children', async function () {
+    nodeAssert.doesNotThrow(function () {
+      assert({
+        type: 'ParagraphNode',
+        children: [{type: 'TextNode', value: 'alpha'}]
+      })
     })
-  }, 'should not throw on vald children')
+  })
 
-  nodeAssert.throws(
-    () => {
+  await t.test('should throw on invalid descendants', async function () {
+    nodeAssert.throws(function () {
       assert({
         type: 'ParagraphNode',
         children: [
@@ -37,8 +41,6 @@ test('children', () => {
           }
         ]
       })
-    },
-    /node should be an object: `'one'` in `{ type: 'bar', children: \[ 'one' ] }`$/,
-    'should throw on invalid descendants'
-  )
+    }, /node should be an object: `'one'` in `{ type: 'bar', children: \[ 'one' ] }`$/)
+  })
 })

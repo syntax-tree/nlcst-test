@@ -1,22 +1,18 @@
-import {expectType, expectNotType} from 'tsd'
-import type {Parent as UnistParent} from 'unist'
-import type {Root, Content} from 'nlcst'
+import type {Nodes, Parents} from 'nlcst'
+import {expectNotType, expectType} from 'tsd'
 import {assert, parent} from './index.js'
-
-type Node = Root | Content
-type Parent = Extract<Node, UnistParent>
 
 const emptyNode = {type: 'a'}
 const literalNode = {type: 'TextNode', value: 'c'}
 const parentNode = {type: 'd', children: [emptyNode, literalNode]}
 
-expectNotType<Node>(emptyNode)
-expectNotType<Node>(literalNode)
-expectNotType<Node>(parentNode)
+expectNotType<Nodes>(emptyNode)
+expectNotType<Nodes>(literalNode)
+expectNotType<Nodes>(parentNode)
 
 assert(emptyNode)
-expectType<Node>(emptyNode)
+expectType<Nodes>(emptyNode)
 
-expectNotType<Parent>(parentNode)
+expectNotType<Parents>(parentNode)
 parent(parentNode)
-expectType<Parent>(parentNode)
+expectType<Parents>(parentNode)
