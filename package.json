@@ -33,10 +33,10 @@
     "index.js"
   ],
   "dependencies": {
-    "@types/nlcst": "^1.0.0",
-    "@types/unist": "^2.0.0",
+    "@types/nlcst": "^2.0.0",
+    "@types/unist": "^3.0.0",
     "mapz": "^2.0.0",
-    "unist-util-assert": "^3.0.0",
+    "unist-util-assert": "^4.0.0",
     "zwitch": "^2.0.0"
   },
   "devDependencies": {
