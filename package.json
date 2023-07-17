@@ -1,6 +1,6 @@
 {
   "name": "nlcst-test",
-  "version": "3.1.1",
+  "version": "4.0.0",
   "description": "nlcst utility to check assert an nlcst node",
   "license": "MIT",
   "keywords": [
